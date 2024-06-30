@@ -1,0 +1,26 @@
+mevr 1.1.1 (release date: 2024-06-21)
+=========================================
+     
+Changes: 
+
+* A Weibull tail test based on left-censoring the input data can be performed 
+prior to fitting a SMEV. This can drastly improve fitting results. 
+* Some internal code improvements. 
+
+
+mevr 1.0.1 (release date: 2024-06-19)
+=========================================
+     
+Changes: 
+
+* NA values are always removed. Functions fsmev, fmev and ftmev throw warnings 
+if the data contains any NA values. 
+* Some internal code improvements. 
+* Added more tests.
+
+
+mevr 1.0.0 (release date: 2024-06-15)
+=========================================
+     
+* First release, submitted to CRAN.
+

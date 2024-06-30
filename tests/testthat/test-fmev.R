@@ -10,14 +10,19 @@ test_that("fmev", {
       expect_error(fmev(data, threshold = 0), "date column must be of class 'Date'")
     })
     
+    it("should throw an error if data values are not of class 'numeric'", {
+      data <- data.frame(groupvar = c(as.Date(c("2024-01-01", "2025-01-01"))), val = c(10, "20"))
+      expect_error(fmev(data), "data values must be of class 'numeric'")
+    })
+    
     it("should throw an error if data contains negative values", {
       data <- data.frame(groupvar = c(as.Date(c("2024-01-01", "2025-01-01"))), val = c(-10, 20))
       expect_error(fmev(data, threshold = 0), "data must not contain values < 0")
     })
     
-    it("should throw an error if data contains NA values", {
+    it("should throw a warning if data contains NA values", {
       data <- data.frame(groupvar = c(as.Date(c("2024-01-01", "2025-01-01"))), val = c(10, NA))
-      expect_error(fmev(data, threshold = 0), "data must not contain NA")
+      expect_warning(fmev(data), "data contains 1 NA values which are ignored.")
     })
     
     it ("should throw an error if method != 'pwm' and threshold > 0", {
